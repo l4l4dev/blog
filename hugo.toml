@@ -1,0 +1,4 @@
+baseURL = "https://l4l4dev.github.io/blog/"
+languageCode = "ja"
+title = "My Tech Blog"
+theme = "LoveIt"
