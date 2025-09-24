@@ -1,0 +1,107 @@
+<!-- layouts/partials/custom-header.html -->
+<!-- カスタムナビゲーション -->
+<nav class="custom-nav">
+  <div class="nav-container">
+    <a href="https://l4l4dev.github.io/" class="nav-brand">l4l4dev</a>
+    <ul class="nav-links">
+      <li>
+        <a href="https://l4l4dev.github.io/">Profile</a>
+      </li>
+      <li>
+        <a href="https://l4l4dev.github.io/blog/" class="active">Blog</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #161b22;
+  border-bottom: 1px solid #30363d;
+  z-index: 10000;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.custom-nav .nav-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-nav .nav-brand {
+  font-size: 18px;
+  font-weight: 600;
+  color: #c9d1d9;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.custom-nav .nav-brand:hover {
+  color: #58a6ff;
+}
+
+.custom-nav .nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-nav .nav-links a {
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.custom-nav .nav-links a:hover {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.custom-nav .nav-links a.active {
+  color: #c9d1d9;
+}
+
+/* 既存ヘッダーの調整 */
+.header-wrapper {
+  margin-top: 48px !important;
+}
+
+/* ダークモード時の調整 */
+[theme="dark"] .custom-nav {
+  background-color: #010409;
+  border-bottom-color: #21262d;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .custom-nav .nav-container {
+    padding: 0 16px;
+  }
+  
+  .custom-nav .nav-brand {
+    font-size: 16px;
+  }
+  
+  .custom-nav .nav-links {
+    gap: 16px;
+  }
+  
+  .custom-nav .nav-links a {
+    font-size: 13px;
+  }
+}
+</style>
