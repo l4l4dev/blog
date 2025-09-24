@@ -1,0 +1,110 @@
+<!-- layouts/partials/custom-footer.html -->
+<script>
+// カスタムナビゲーションを動的に挿入
+document.addEventListener('DOMContentLoaded', function() {
+  // ナビゲーションのHTML
+  const navHTML = `
+    <nav class="custom-nav" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #161b22;
+      border-bottom: 1px solid #30363d;
+      z-index: 10000;
+      height: 48px;
+      display: flex;
+      align-items: center;
+    ">
+      <div class="nav-container" style="
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+      ">
+        <a href="https://l4l4dev.github.io/" class="nav-brand" style="
+          font-size: 18px;
+          font-weight: 600;
+          color: #c9d1d9;
+          text-decoration: none;
+        ">l4l4dev</a>
+        <div class="nav-links" style="
+          display: flex;
+          gap: 24px;
+        ">
+          <a href="https://l4l4dev.github.io/" style="
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+          ">Profile</a>
+          <a href="https://l4l4dev.github.io/blog/" style="
+            color: #c9d1d9;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+          ">Blog</a>
+        </div>
+      </div>
+    </nav>
+  `;
+  
+  // body要素の最初に挿入
+  document.body.insertAdjacentHTML('afterbegin', navHTML);
+  
+  // 既存のヘッダーを下にずらす
+  const headerWrapper = document.querySelector('.header-wrapper');
+  if (headerWrapper) {
+    headerWrapper.style.marginTop = '48px';
+  }
+  
+  // ページ全体のコンテンツを下にずらす
+  const wrapper = document.querySelector('.wrapper');
+  if (wrapper) {
+    wrapper.style.paddingTop = '48px';
+  }
+  
+  // ホバーエフェクトを追加
+  const navBrand = document.querySelector('.nav-brand');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  
+  if (navBrand) {
+    navBrand.addEventListener('mouseenter', function() {
+      this.style.color = '#58a6ff';
+    });
+    navBrand.addEventListener('mouseleave', function() {
+      this.style.color = '#c9d1d9';
+    });
+  }
+  
+  navLinks.forEach(link => {
+    link.addEventListener('mouseenter', function() {
+      if (!this.style.color || this.style.color === 'rgb(139, 148, 158)') {
+        this.style.color = '#58a6ff';
+      }
+    });
+    link.addEventListener('mouseleave', function() {
+      if (this.href.includes('/blog')) {
+        this.style.color = '#c9d1d9';
+      } else {
+        this.style.color = '#8b949e';
+      }
+    });
+  });
+  
+  // ダークモード対応
+  const isDark = document.body.getAttribute('theme') === 'dark' || 
+                 localStorage.getItem('theme') === 'dark';
+  if (isDark) {
+    const nav = document.querySelector('.custom-nav');
+    if (nav) {
+      nav.style.backgroundColor = '#010409';
+      nav.style.borderBottomColor = '#21262d';
+    }
+  }
+});
+</script>
