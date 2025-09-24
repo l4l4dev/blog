@@ -9,7 +9,7 @@ theme = "LoveIt"
 
 [params]
   # site default theme ["auto", "light", "dark"]
-  defaultTheme = "auto"
+  defaultTheme = "dark"
   # public git repo url only then enableGitInfo is true
   gitRepo = ""
   # which hash function used for SRI, when empty, no SRI is used
@@ -54,7 +54,7 @@ theme = "LoveIt"
   [params.footer]
     enable = true
     # Custom content (HTML format is supported)
-    custom = ""
+    custom = '<div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #30363d;"><a href="https://l4l4dev.github.io/" style="color: #58a6ff;">← Back to Profile</a></div>'
     # whether to show Hugo and theme info
     hugo = true
     # whether to show copyright info
@@ -95,11 +95,11 @@ theme = "LoveIt"
     # modern SVG favicon to use in place of older style .png and .ico files
     svgFavicon = ""
     # Android browser theme color
-    themeColor = "#ffffff"
+    themeColor = "#0d1117"
     # Safari mask icon color
-    iconColor = "#5bbad5"
+    iconColor = "#58a6ff"
     # Windows v8-11 tile color
-    tileColor = "#da532c"
+    tileColor = "#0d1117"
 
   # Search config
   [params.search]

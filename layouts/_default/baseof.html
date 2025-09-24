@@ -1,0 +1,43 @@
+<!-- layouts/_default/baseof.html -->
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    {{- partial "head/head.html" . -}}
+    <body data-header-desktop="{{ .Site.Params.header.desktopMode }}" data-header-mobile="{{ .Site.Params.header.mobileMode }}">
+        {{- /* カスタムナビゲーションを追加 */ -}}
+        {{- partial "custom.html" . -}}
+        
+        {{- /* Check theme isDark before body rendering */ -}}
+        {{- $theme := .Site.Params.defaulttheme -}}
+        <script type="text/javascript">
+            if (window.localStorage && localStorage.getItem('theme')) {
+                let theme = localStorage.getItem('theme');
+                theme === 'dark' ? document.body.setAttribute('theme', 'dark') : document.body.setAttribute('theme', 'light');
+            }
+        </script>
+        <div id="mask"></div>
+
+        {{- /* Body wrapper */ -}}
+        <div class="wrapper">
+            {{- partial "header/index.html" . -}}
+            <main class="main">
+                <div class="container">
+                    {{- block "content" . }}{{ end -}}
+                </div>
+            </main>
+            {{- partial "footer/index.html" . -}}
+        </div>
+
+        <div id="fixed-buttons">
+            {{- /* top button */ -}}
+            <a href="#" id="back-to-top" class="fixed-button">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a>
+            {{- /* comment button */ -}}
+            <a href="#" id="view-comments" class="fixed-button">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div>
+
+        {{- partial "assets.html" . -}}
+    </body>
+</html>
